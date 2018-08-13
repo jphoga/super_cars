@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2018_08_13_080713) do
 
   # These are extensions that must be enabled in order to support this database
@@ -20,6 +21,10 @@ ActiveRecord::Schema.define(version: 2018_08_13_080713) do
     t.datetime "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "car_id"
+    t.index ["car_id"], name: "index_bookings_on_car_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "cars", force: :cascade do |t|
@@ -33,6 +38,8 @@ ActiveRecord::Schema.define(version: 2018_08_13_080713) do
     t.string "transmission"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -40,6 +47,11 @@ ActiveRecord::Schema.define(version: 2018_08_13_080713) do
     t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
+    t.bigint "user_id"
+    t.bigint "car_id"
+    t.index ["car_id"], name: "index_reviews_on_car_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -55,8 +67,19 @@ ActiveRecord::Schema.define(version: 2018_08_13_080713) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "drivers_license"
+    t.string "address"
+    t.string "phone"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "cars"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "cars", "users"
+  add_foreign_key "reviews", "cars"
+  add_foreign_key "reviews", "users"
 end

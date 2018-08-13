@@ -19,6 +19,9 @@ gem 'webpacker'
 #login device
 gem 'devise'
 
+#faker
+gem 'faker'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
