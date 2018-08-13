@@ -6,5 +6,4 @@ class User < ApplicationRecord
   has_many :reviews
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :cars, :bookings, :reviews
 end
