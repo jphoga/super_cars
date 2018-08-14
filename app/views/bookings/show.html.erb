@@ -1,0 +1,9 @@
+<h1>Your booking information is shown below</h1>
+<h2><%= @booking.start_date.strftime("%b %d, %Y") %></h2>
+<h2><%= @booking.end_date.strftime("%b %d, %Y") %></h2>
+<%= link_to "See your bookings", bookings_path, class: 'btn btn-primary' %>
+<%= link_to "Back to listings", cars_path, class: 'btn btn-primary' %>
+<%= link_to "Back to home", root_path, class: 'btn btn-primary' %>
+<%= link_to "Cancel Booking", booking_path,
+        method: :delete,
+        data: { confirm: "Are you sure you want to cancel your booking?" }, class: 'btn btn-danger' %>
