@@ -1,31 +1,26 @@
+<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Josefin+Sans" rel="stylesheet">
+
 <div class= "header">
-<h1>List of Cars</h1>
+<h1>Pick your dream ride</h1>
 </div>
 
 <div class="container">
  <div class="row">
+
    <% @cars.each do |car| %>
+   <div class="col-sm-12 col-md-6">
+
      <%= link_to car_path(car) do %>
-     <div class="card">
+     <div class="card"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
        <h2><%= car.brand %></h2>
+  <a class="card-link" href="#" ></a>
      </div>
+    </div>
      <% end %>
    <% end %>
  </div>
 </div>
 <%= link_to "Create Listing", new_car_path %>
-
-<h1>List of Cars</h1>
-
-<div class="container">
-  <div class="row">
-    <% @cars.each do |car| %>
-      <%= link_to car_path(car) do %>
-      <div class="card">
-        <h2><%= car.brand %></h2>
-      </div>
-      <% end %>
-    <% end %>
   </div>
 </div>
 
