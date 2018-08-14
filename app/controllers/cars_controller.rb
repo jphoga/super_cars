@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-  before_action :set_cocktail, only: [:show, :destroy]
+  before_action :set_car, only: [:show, :destroy]
   def index
     @cars = Car.all
   end
@@ -19,6 +19,7 @@ class CarsController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
   end
 
   def destroy
@@ -28,7 +29,7 @@ class CarsController < ApplicationController
 
   private
 
-  def set_cocktail
+  def set_car
     @car = Car.find(params[:id])
   end
 
