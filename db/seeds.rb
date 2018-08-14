@@ -28,9 +28,9 @@ user1 = User.create(
   address: "Tokyo, Setagaya",
   drivers_license: "some license",
   email: "test@gmail.com",
-  password: "123456"
+  password: "123456",
+  remote_photo_url: url1
   )
-user1.remote_photo_url = url1
 
 user2 = User.create(
   username: "Chuck Norris",
@@ -40,9 +40,9 @@ user2 = User.create(
   address: "Tokyo, Shibuya",
   drivers_license: "some other license",
   email: "chuck@gmail.com",
-  password: "123456"
+  password: "123456",
+  remote_photo_url: url2
   )
-user2.remote_photo_url = url2
 
 
 user3 = User.create(
@@ -53,9 +53,9 @@ user3 = User.create(
   address: "Tokyo, Roppongi",
   drivers_license: "some other license",
   email: "chuck@gmail.com",
-  password: "123456"
+  password: "123456",
+  remote_photo_url: url3
   )
-user3.remote_photo_url = url3
 
 tania = User.create(
   username: "Tania Demi",
@@ -65,9 +65,9 @@ tania = User.create(
   address: "Peru, Lima",
   drivers_license: "some other license",
   email: "happykid@gmail.com",
-  password: "123456"
+  password: "123456",
+  remote_photo_url: url4
   )
-tania.remote_photo_url = url4
 
 
 heroku = User.create(
@@ -78,9 +78,10 @@ heroku = User.create(
   address: "China, Chengdu",
   drivers_license: "some other license",
   email: "hiroku@gmail.com",
-  password: "123456"
+  password: "123456",
+  remote_photo_url: url5
+
   )
-heroku.remote_photo_url = url5
 
 
 david = User.create(
@@ -91,9 +92,9 @@ david = User.create(
   address: "China, Hongkong",
   drivers_license: "some other license",
   email: "David@gmail.com",
-  password: "123456"
+  password: "123456",
+  remote_photo_url: url6
   )
-david.remote_photo_url = url6
 
 
 jan = User.create(
@@ -104,9 +105,10 @@ jan = User.create(
   address: "Tokyo, Meguro",
   drivers_license: "some other license",
   email: "jan@gmail.com",
-  password: "123456"
+  password: "123456",
+  remote_photo_url: url7
   )
-jan.remote_photo_url = url7
+
 
 
 p "created #{User.count} users"
@@ -125,7 +127,7 @@ lamborginiurl = "https://res.cloudinary.com/jphoga/image/upload/v1534234316/cent
 car_arr = [porscheurl, astonurl, mclarenurl, bentelyurl, ferrariurl, lamborginiurl]
 
 10.times do
-  Car.create(
+  car = Car.new(
     brand: brand.sample,
     mileage: [*(1..50000)].sample,
     year: [1950, 1970, 1980, 1968, 2008, 2020].sample,
@@ -137,6 +139,7 @@ car_arr = [porscheurl, astonurl, mclarenurl, bentelyurl, ferrariurl, lamborginiu
     model: "fake model"
     )
   car.remote_photo_url = car_arr.sample
+  car.save!
 end
 
 p "created #{Car.count} cars"
