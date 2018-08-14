@@ -16,6 +16,9 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
+#pundit authorization
+gem 'pundit'
+
 #login device
 gem 'devise'
 
