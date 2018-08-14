@@ -15,6 +15,13 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem "typedjs-rails"
+
+#image upload
+gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
+
+
 
 #pundit authorization
 gem 'pundit'

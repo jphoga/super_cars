@@ -1,0 +1,15 @@
+<h1>List of Bookings</h1>
+
+<div class="container">
+  <div class="row">
+    <% @bookings.each do |booking| %>
+      <%= link_to booking_path(booking) do %>
+      <div class="card">
+        <h2><%= booking.start_date %></h2>
+        <h2><%= booking.end_date %></h2>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+

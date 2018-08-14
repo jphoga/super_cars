@@ -1,4 +1,7 @@
+
 <%= simple_form_for(car) do |f| %>
+<div class = "textforform">
+
   <%= f.input :brand %>
   <%= f.input :model %>
   <%= f.input :mileage %>
@@ -7,5 +10,6 @@
   <%= f.input :location %>
   <%= f.input :transmission %>
   <%= f.input :price %>
-  <%= f.submit %>
+ %= f.submit, class: "input-button" %> 
+</div>
 <% end %>
