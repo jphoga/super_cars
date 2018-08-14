@@ -1,25 +1,15 @@
 
-
 <%= simple_form_for(car) do |f| %>
-<div class="form-inline">
-  <div class="form-group col-xs-12 col-sm-12 col-md-4 col-md-offset-4">
-   <%= f.input :price %>
-    <%= f.input :year %>
+<div class = "textforform">
 
   <%= f.input :brand %>
-    <%= f.input :model %>
-
-    <%= f.input :location %>
-    <%= f.input :mileage %>
-
-    <%= f.input :body_type %>
-    <%= f.input :transmission %>
-  </div>
-
-
-
-
-
-  <%= f.submit %>
+  <%= f.input :model %>
+  <%= f.input :mileage %>
+  <%= f.input :year %>
+  <%= f.input :body_type %>
+  <%= f.input :location %>
+  <%= f.input :transmission %>
+  <%= f.input :price %>
+ %= f.submit, class: "input-button" %> 
 </div>
 <% end %>
