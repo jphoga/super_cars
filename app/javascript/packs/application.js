@@ -1,7 +1,10 @@
 import "bootstrap";
+import "../plugins/flatpickr";
 
 console.log("Hello from packs");
 
-import { loadDynamicBannerText } from './components/banner';
+import { loadDynamicBannerText } from '../components/banner';
 loadDynamicBannerText();
-import "../plugins/flatpickr";
+
+import { initUpdateNavbarOnScroll } from '../components/navbar';
+initUpdateNavbarOnScroll();
