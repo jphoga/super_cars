@@ -1,0 +1,7 @@
+<h1><%= @car.brand %></h1>
+
+<%= link_to "Back to listings", cars_path %>
+<%= link_to "Back to home", root_path %>
+<%= link_to "Delete listing", car_path,
+        method: :delete,
+        data: { confirm: "Are you sure you want to delete this listing?" }, class: 'btn btn-primary' %>

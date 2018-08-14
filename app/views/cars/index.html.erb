@@ -1,0 +1,16 @@
+<%= link_to "Create Listing", new_car_path %>
+
+<h1>List of Cars</h1>
+
+<div class="container">
+  <div class="row">
+    <% @cars.each do |car| %>
+      <%= link_to car_path(car) do %>
+      <div class="card">
+        <h2><%= car.brand %></h2>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
