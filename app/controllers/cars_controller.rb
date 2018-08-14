@@ -1,5 +1,6 @@
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :destroy]
+  skip_before_action :authenticate_user!,only: [:show, :index]
   def index
     @cars = policy_scope(Car)
   end
