@@ -23,6 +23,9 @@ gem 'carrierwave', '~> 1.2'
 
 
 
+#pundit authorization
+gem 'pundit'
+
 #login device
 gem 'devise'
 
