@@ -11,6 +11,15 @@ Review.destroy_all if Rails.env.development?
 Car.destroy_all if Rails.env.development?
 User.destroy_all if Rails.env.development?
 
+url1 = "https://res.cloudinary.com/jphoga/image/upload/v1534234316/face.jpg"
+url2 = "https://res.cloudinary.com/jphoga/image/upload/v1534234315/chuck.jpg"
+url3 = "https://res.cloudinary.com/jphoga/image/upload/v1534234316/jackiechan.jpg"
+url4 = "https://res.cloudinary.com/jphoga/image/upload/v1534234316/tania.png"
+url5 = "https://res.cloudinary.com/jphoga/image/upload/v1534234316/hiroki.png"
+url6 = "https://res.cloudinary.com/jphoga/image/upload/v1534234316/david.png"
+url7 = "https://res.cloudinary.com/jphoga/image/upload/v1533875438/Foto1.jpg"
+
+
 user1 = User.create(
   username: "Kristen Jonas",
   first_name: "Kristen",
@@ -21,6 +30,7 @@ user1 = User.create(
   email: "test@gmail.com",
   password: "123456"
   )
+user1.remote_photo_url = url1
 
 user2 = User.create(
   username: "Chuck Norris",
@@ -32,6 +42,8 @@ user2 = User.create(
   email: "chuck@gmail.com",
   password: "123456"
   )
+user2.remote_photo_url = url2
+
 
 user3 = User.create(
   username: "Jackie Chan",
@@ -43,6 +55,7 @@ user3 = User.create(
   email: "chuck@gmail.com",
   password: "123456"
   )
+user3.remote_photo_url = url3
 
 tania = User.create(
   username: "Tania Demi",
@@ -54,6 +67,8 @@ tania = User.create(
   email: "happykid@gmail.com",
   password: "123456"
   )
+tania.remote_photo_url = url4
+
 
 heroku = User.create(
   username: "Hiroku FU",
@@ -65,6 +80,8 @@ heroku = User.create(
   email: "hiroku@gmail.com",
   password: "123456"
   )
+heroku.remote_photo_url = url5
+
 
 david = User.create(
   username: "David Li",
@@ -76,6 +93,8 @@ david = User.create(
   email: "David@gmail.com",
   password: "123456"
   )
+david.remote_photo_url = url6
+
 
 jan = User.create(
   username: "Jan H",
@@ -87,6 +106,8 @@ jan = User.create(
   email: "jan@gmail.com",
   password: "123456"
   )
+jan.remote_photo_url = url7
+
 
 p "created #{User.count} users"
 
@@ -94,6 +115,14 @@ brand = %w( Lamborgini Ferrari AstonMartin Bentley McLaren Porsche )
 body_type = %w( Coupe Sedan SUV Wagon )
 transmission = %w( manual automatic )
 
+porscheurl = "https://res.cloudinary.com/jphoga/image/upload/v1534234624/porsche.jpg"
+astonurl = "https://res.cloudinary.com/jphoga/image/upload/v1534234623/aston.jpg"
+mclarenurl = "https://res.cloudinary.com/jphoga/image/upload/v1534234316/mclaren.jpg"
+bentelyurl = "https://res.cloudinary.com/jphoga/image/upload/v1534234316/bentely.jpg"
+ferrariurl = "https://res.cloudinary.com/jphoga/image/upload/v1534234316/ferrari.jpg"
+lamborginiurl = "https://res.cloudinary.com/jphoga/image/upload/v1534234316/centenario.jpg"
+
+car_arr = [porscheurl, astonurl, mclarenurl, bentelyurl, ferrariurl, lamborginiurl]
 
 10.times do
   Car.create(
@@ -106,8 +135,8 @@ transmission = %w( manual automatic )
     transmission: transmission.sample,
     user: User.all.sample,
     model: "fake model"
-
     )
+  car.remote_photo_url = car_arr.sample
 end
 
 p "created #{Car.count} cars"
