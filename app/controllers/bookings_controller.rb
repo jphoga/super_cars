@@ -1,9 +1,9 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :destroy]
   def index
-    @bookings = policy_scope(Booking)
+    @bookings = policy_scope(Booking).order("created_at DESC")
   end
-
+  
   def create
     @car = Car.find(params[:car_id])
     @booking = Booking.new(booking_params)

@@ -1,28 +1,31 @@
 <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Josefin+Sans" rel="stylesheet">
 
-<div class= "header">
-<h1>Pick your dream ride</h1>
-</div>
 
-<div class="container">
- <div class="row">
+<div class="wrapper-index">
+  <div class="container">
+    <div class= "header">
+    <h1>Pick your dream ride</h1>
+    </div>
+   <div class="row">
 
-   <% @cars.each do |car| %>
-   <div class="col-sm-12 col-md-6">
+     <% @cars.each do |car| %>
+     <div class="col-sm-12 col-md-6">
 
 
-  <div class="card-wrapper">
-    <%= link_to car_path(car) do %>
-      <div class="card"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path car.photo %>');">
-        <h2><%= car.brand %></h2>
+    <div class="card-wrapper">
+      <%= link_to car_path(car) do %>
+        <div class="card"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path car.photo unless car.photo.blank? %>');">
+          <h2><%= car.brand %></h2>
 
+        </div>
+      <% end %>
       </div>
-    <% end %>
+    </div>
+
+     <% end %>
+   </div>
+  </div>
     </div>
   </div>
 
-   <% end %>
- </div>
-</div>
-  </div>
 </div>
