@@ -18,6 +18,17 @@
   border: solid;
   border-radius: 20px;
 }
+
+.description-card{
+  height: 200px;
+  background-size: cover !important;
+  background-position: center;
+  color: black;
+  position: relative;
+  border-radius: 20px;
+  font-size: 15px;
+}
+
 .card-user {
   position: absolute;
   right: 10px;
@@ -39,7 +50,7 @@
   left: 10px;
 }
 .card-description h2 {
-  font-size: 24px;
+  font-size: 36px;
 }
 .card-description p {
   font-size: 14px;
