@@ -1,15 +1,14 @@
 
 <%= simple_form_for(car) do |f| %>
 <div class = "textforform">
-
-  <%= f.input :brand %>
-  <%= f.input :model %>
-  <%= f.input :mileage %>
-  <%= f.input :year %>
-  <%= f.input :body_type %>
-  <%= f.input :location %>
-  <%= f.input :transmission %>
-  <%= f.input :price %>
- %= f.submit, class: "input-button" %> 
+ <div class= "form-input"> <%= f.input :brand %></div>
+ <div class= "form-input"> <%= f.input :model %></div>
+ <div class= "form-input"> <%= f.input :mileage %></div>
+ <div class= "form-input"> <%= f.input :year %></div>
+ <div class= "form-input"> <%= f.input :body_type %></div>
+ <div class= "form-input"> <%= f.input :location %></div>
+ <div class= "form-input"> <%= f.input :transmission %></div>
+<div class= "form-input">  <%= f.input :price %> </div>
+<div class="nice-button"><%= f.submit %></div>
 </div>
 <% end %>
