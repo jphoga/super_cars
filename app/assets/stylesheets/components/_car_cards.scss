@@ -9,7 +9,7 @@
 }
 
 .card {
-  height: 200px;
+  height: 225px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.8);
   background-size: cover !important;
   background-position: center;
@@ -33,13 +33,13 @@
   text-transform: uppercase;
 }
 .card-description {
-  color: #161414;
+  color: white;
   position: absolute;
   bottom: 10px;
   left: 10px;
 }
 .card-description h2 {
-  font-size: 24px;
+  font-size: 32px;
 }
 .card-description p {
   font-size: 14px;
@@ -58,4 +58,13 @@
 }
 .card-link:hover {
   opacity: 0.1;
+}
+
+.card-price {
+  position: absolute;
+  right: 10px;
+}
+
+.card-price h3 {
+  font-size: 24px;
 }
