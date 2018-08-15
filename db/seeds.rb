@@ -52,7 +52,7 @@ user3 = User.create(
   phone: "+12346",
   address: "Tokyo, Roppongi",
   drivers_license: "some other license",
-  email: "chuck@gmail.com",
+  email: "jackiechan@gmail.com",
   password: "123456",
   remote_photo_url: url3
   )
