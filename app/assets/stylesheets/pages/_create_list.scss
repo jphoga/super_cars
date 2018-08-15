@@ -1,15 +1,18 @@
 .textforform {
   color: #3D3432;
   margin-bottom: 150px;
-  text-shadow: 1px 0 black;
+  font-family:  BasisGrotesque, Avenir, Helvetica Neue, Helvetica, sans-serif;
 
+}
+.form-input{
+  padding-bottom: 5px;
 }
 
 .title-listing {
   text-shadow: 3px 0 black;
   margin:-1px;
   color: white;
-  padding: 40px;
+  padding: 60px;
   text-align: center;
 }
 
@@ -23,4 +26,9 @@
 .imagen{
   margin-top: -20px;
   text-align: center;
+}
+.nice-button {
+  margin-top: 10px;
+  color: #0090C1;
+  margin-left: 130px;
 }
