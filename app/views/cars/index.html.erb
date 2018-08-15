@@ -13,7 +13,7 @@
 
   <div class="card-wrapper">
     <%= link_to car_path(car) do %>
-      <div class="card"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path car.photo %>');">
+      <div class="card"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path car.photo unless car.photo.blank? %>');">
         <h2><%= car.brand %></h2>
 
       </div>
