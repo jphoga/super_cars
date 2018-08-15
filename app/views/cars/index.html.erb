@@ -1,14 +1,15 @@
 <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Josefin+Sans" rel="stylesheet">
 
-<div class= "header">
-  <h1>Pick your dream ride</h1>
-</div>
 
-<div class="container">
- <div class="row">
+<div class="wrapper-index">
+  <div class="container">
+    <div class= "header">
+    <h1>Pick your dream ride</h1>
+    </div>
+   <div class="row">
 
-   <% @cars.each do |car| %>
-   <div class="col-sm-12 col-md-6">
+     <% @cars.each do |car| %>
+     <div class="col-sm-12 col-md-6">
 
 
   <div class="card-wrapper">
@@ -21,12 +22,12 @@
           <h3>¥<%= car.price %> per day</h3>
         </div>
       </div>
-    <% end %>
+    </div>
+
+     <% end %>
+   </div>
+  </div>
     </div>
   </div>
 
-   <% end %>
- </div>
-</div>
-  </div>
 </div>
