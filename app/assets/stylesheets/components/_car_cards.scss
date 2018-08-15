@@ -8,6 +8,17 @@
   }
 }
 
+.card {
+  height: 200px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+  border: solid;
+  border-radius: 20px;
+}
+
 .description-card{
   height: 200px;
   background-size: cover !important;
@@ -17,6 +28,7 @@
   border-radius: 20px;
   font-size: 15px;
 }
+
 .card-user {
   position: absolute;
   right: 10px;
@@ -37,7 +49,7 @@
   bottom: 10px;
   left: 10px;
 }
-.card-description h2 {
+.new-card-description h2 {
   font-size: 36px;
 }
 .card-description p {
