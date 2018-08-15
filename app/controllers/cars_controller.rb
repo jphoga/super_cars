@@ -3,6 +3,7 @@ class CarsController < ApplicationController
   skip_before_action :authenticate_user!,only: [:show, :index ]
   def index
     @cars = policy_scope(Car)
+    # @cars.order("created_at DESC")
   end
 
   def new
