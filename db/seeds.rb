@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Booking.destroy_all if Rails.env.development?
 Review.destroy_all if Rails.env.development?
+Booking.destroy_all if Rails.env.development?
 Car.destroy_all if Rails.env.development?
 User.destroy_all if Rails.env.development?
 

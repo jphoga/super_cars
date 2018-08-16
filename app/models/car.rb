@@ -16,4 +16,7 @@ class Car < ApplicationRecord
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
 
+  def unreviewed_bookings
+    bookings.where.not(id: reviews.pluck(:booking_id).uniq)
+  end
 end

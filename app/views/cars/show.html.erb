@@ -85,9 +85,15 @@
         <div class="review-card">
           <h2>Write A Review</h2>
           <% @unreviewed_bookings.each do |unreviewed_booking| %>
-          <h3>Booking made on: <%= unreviewed_booking.created_at.strftime("%b %e, %Y - %l:%M %p") %></h3>
-          <h3>Booked From: <%= unreviewed_booking.start_date.strftime("%b %d, %Y") %> To: <%= unreviewed_booking.end_date.strftime("%b %d, %Y") %></h3>
-            <%= render 'reviews/form', review: @review, unreviewed_booking: unreviewed_booking %>
+            <div class="review-separator">
+              <h3>Booking made on: <%= unreviewed_booking.created_at.strftime("%b %e, %Y - %l:%M %p") %></h3>
+              <h3>Booked From: <%= unreviewed_booking.start_date.strftime("%b %d, %Y") %> To: <%= unreviewed_booking.end_date.strftime("%b %d, %Y") %></h3>
+              <% if Date.today >= unreviewed_booking.end_date %>
+                <%= render 'reviews/form', review: @review, unreviewed_booking: unreviewed_booking %>
+              <% else %>
+                <h3>You can write a review after the booking period</h3>
+              <% end %>
+            </div>
           <% end %>
         </div>
       </div>
@@ -98,12 +104,12 @@
   <hr>
   <div class="row">
     <% @car.reviews.order("created_at DESC").each do |review| %>
-    <div class="review-separator">
-      <h3><%= review.created_at.strftime("%b %Y") %> <%= review.user.first_name %> <%= review.user.last_name %>
-        <%= cl_image_tag review.user.photo, class: "avatar img-circle" %></h3>
-      <h3><%= review.rating %></h3>
-      <h3><%= review.content %></h3>
-    </div>
+      <div class="review-separator">
+        <h3><%= review.created_at.strftime("%b %Y") %> <%= review.user.first_name %> <%= review.user.last_name %>
+          <%= cl_image_tag review.user.photo, class: "avatar img-circle" %></h3>
+        <h3><%= review.rating %></h3>
+        <h3><%= review.content %></h3>
+      </div>
     <% end %>
   </div>
 </div>
