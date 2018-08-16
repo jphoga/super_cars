@@ -6,4 +6,11 @@ class Car < ApplicationRecord
   validates :mileage, :numericality => { :greater_than_or_equal_to => 0 }
   validates :price, :numericality => { :greater_than_or_equal_to => 0 }
   mount_uploader :photo, PhotoUploader
+
+  include PgSearch
+  pg_search_scope :search_by_car,
+    against: [ :brand, :model ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 end

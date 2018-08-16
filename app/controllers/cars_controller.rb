@@ -1,9 +1,15 @@
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :destroy]
   skip_before_action :authenticate_user!,only: [:show, :index ]
+
   def index
-    @cars = policy_scope(Car)
+    skip_policy_scope
+    if params[:query].present?
+      @cars = Car.search_by_car(params[:query])
     # @cars.order("created_at DESC")
+    else
+      @cars = Car.all
+    end
   end
 
   def new
