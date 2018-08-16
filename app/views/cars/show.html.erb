@@ -70,3 +70,29 @@
   </div>
 </div>
 </div>
+<div class="container">
+  <% if @unreviewed_bookings.any? %>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div class="review-card">
+          <h2>Write A Review</h2>
+          <% @unreviewed_bookings.each do |unreviewed_booking| %>
+            <%= render 'reviews/form', review: @review, unreviewed_booking: unreviewed_booking %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <hr>
+  <h2 class="text-center">Reviews</h2>
+  <hr>
+  <div class="row">
+    <% @car.reviews.order("created_at DESC").each do |review| %>
+    <div class="review-separator">
+      <h3><%= review.user.first_name %> <%= review.user.last_name %> <%= cl_image_tag review.user.photo, class: "avatar img-circle" %></h3>
+      <h3><%= review.rating %></h3>
+      <h3><%= review.content %></h3>
+    </div>
+    <% end %>
+  </div>
+</div>

@@ -204,12 +204,12 @@ end
 
 p "created #{Booking.count} bookings"
 
-10.times do
+100.times do
   Review.create(
     content: Faker::Simpsons.quote,
     rating: [*(1..5)].sample,
     user: User.all.sample,
-    car: Car.all.sample
+    booking: Booking.all.sample
     )
 end
 
