@@ -32,10 +32,6 @@ gem 'faker'
 
 gem 'pg_search'
 
-gem 'cloudinary'
-#carrierwave
-gem 'carrierwave', '~> 1.2'
-
 #geocoder
 gem 'geocoder'
 
