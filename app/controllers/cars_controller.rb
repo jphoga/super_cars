@@ -31,7 +31,7 @@ class CarsController < ApplicationController
 
   def show
     @booking = Booking.new
-    @unreviewed_bookings = @car.bookings.where.not(id: @car.reviews.pluck(:booking_id).uniq)
+    @unreviewed_bookings = @car.unreviewed_bookings
     # @car.bookings
     # @booking = Booking.find_by(user: current_user)
     @review = Review.new
