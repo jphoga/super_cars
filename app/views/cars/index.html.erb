@@ -1,9 +1,6 @@
-
 <div class= "header">
   <h1>Pick your dream ride</h1>
 </div>
-
-
 <div class="header">
   <%= form_tag cars_path, method: :get do %>
     <%= text_field_tag :query,
@@ -11,31 +8,25 @@
     <%= submit_tag "Search" , class: "btn btn-primary"%>
   <% end %>
 </div>
-
 <div class="wrapper-index">
   <div class="container">
-
-
     <div class="row">
       <% @cars.each do |car| %>
-      <div class="col-sm-12 col-md-6">
-        <div class="card-wrapper">
-
-          <%= link_to car_path(car) do %>
-            <div class="card"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path car.photo unless car.photo.blank? %>');">
+        <div class="col-sm-12 col-md-6">
+          <div class="card-wrapper">
+            <%= link_to car_path(car) do %>
+              <div class="card"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path car.photo unless car.photo.blank? %>');">
                 <div class="card-description">
                   <h2><%= car.brand %> <%= car.model %></h2>
                 </div>
                 <div class="card-price">
                   <h3>$<%= car.price %> per day</h3>
                 </div>
-            </div>
-          <% end %>
-       </div>
-
-      </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
       <% end %>
+    </div>
   </div>
-
 </div>
-
