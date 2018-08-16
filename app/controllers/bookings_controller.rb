@@ -13,6 +13,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to booking_path(@booking)
     else
+      @unreviewed_bookings = @car.unreviewed_bookings
       render "cars/show"
     end
   end
