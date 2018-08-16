@@ -1,4 +1,19 @@
 // Specific CSS for your home-page
+
+.title-padding h1 {
+  padding-top: 60px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.black-font h1 {
+  padding: 0;
+}
+
+td {
+  padding-left: 0;
+}
+
 .header {
   display:flex;
   align-items: center;
