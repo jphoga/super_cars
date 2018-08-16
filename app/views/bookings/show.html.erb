@@ -1,9 +1,21 @@
-<h1>Your booking information is shown below</h1>
-<h2><%= @booking.start_date.strftime("%b %d, %Y") %></h2>
-<h2><%= @booking.end_date.strftime("%b %d, %Y") %></h2>
+
+<div class="booking">
+<h1>Thank you !!
+<br></br>Your booking information is shown below</h1>
+
+<div class="col-sm-6 col-sm-offset-3">
+<h2> Start date: <%= @booking.start_date.strftime("%b %d, %Y") %></h2>
+</div>
+<div class="col-sm-6 col-sm-offset-3">
+<h2> End date: <%= @booking.end_date.strftime("%b %d, %Y") %></h2>
+</div>
+
+<div class="col-sm-8 col-sm-offset-2 buttons-options">
 <%= link_to "See your bookings", bookings_path, class: 'btn btn-primary' %>
 <%= link_to "Back to listings", cars_path, class: 'btn btn-primary' %>
 <%= link_to "Back to home", root_path, class: 'btn btn-primary' %>
 <%= link_to "Cancel Booking", booking_path,
         method: :delete,
         data: { confirm: "Are you sure you want to cancel your booking?" }, class: 'btn btn-danger' %>
+</div>
+</div>
