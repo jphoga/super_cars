@@ -34,10 +34,6 @@ gem 'devise'
 gem 'faker'
 
 
-gem 'cloudinary'
-#carrierwave
-gem 'carrierwave', '~> 1.2'
-
 
 
 group :development do
