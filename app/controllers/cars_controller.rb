@@ -1,11 +1,15 @@
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :destroy]
   skip_before_action :authenticate_user!,only: [:show, :index ]
+
   def index
+    skip_policy_scope
+    if params[:query].present?
+      @cars = Car.search_by_car(params[:query])
     # @cars.order("created_at DESC")
-
-    @cars = policy_scope(Car)
-
+    else
+      @cars = Car.all
+    end
   end
 
   def new
@@ -38,7 +42,11 @@ class CarsController < ApplicationController
         lng: @car.longitude,
         infoWindow: { content: render_to_string(partial: "/cars/map_box", locals: { car: @car }) }
       }]
-
+    
+    @unreviewed_bookings = @car.bookings.where.not(id: @car.reviews.pluck(:booking_id).uniq)
+    # @car.bookings
+    # @booking = Booking.find_by(user: current_user)
+    @review = Review.new
   end
 
   def destroy

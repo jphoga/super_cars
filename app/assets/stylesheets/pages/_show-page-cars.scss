@@ -2,7 +2,6 @@
   margin-top: auto;
 }
 
-
 .show_image {
   background-image: cover;
   padding-top: 40px;
@@ -32,7 +31,16 @@
     border-radius: 2px;
 }
 .btns-end {
-  margin-left: 60px;
+  margin-left: 0;
+  padding-left:0;
+}
+
+.wrapper-booking-form {
+  margin-top: 10px;
+}
+
+.wrapper-button {
+  display: inline-block;
 }
 
 .map-style{

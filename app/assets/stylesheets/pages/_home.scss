@@ -1,10 +1,14 @@
 // Specific CSS for your home-page
-.header h1 {
+.header {
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
   color: black;
   font-weight: bold;
   text-align: center;
   font-family: "Raleway", "Helvetica", "sans-serif";
 }
+
 .body {
   text-align: center;
   color: #DDD2DD;
@@ -19,4 +23,17 @@
   .header h1 {
     padding-bottom: 50px;
   }
+}
+
+.black-font {
+  color: black;
+}
+
+.form-tag {
+  padding-top: 4px;
+  padding-bottom: 6px;
+}
+.form-tag-index {
+  padding-top: 4px;
+  padding-bottom: 9px;
 }

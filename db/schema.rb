@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2018_08_16_043105) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,8 +51,8 @@ ActiveRecord::Schema.define(version: 2018_08_16_043105) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.bigint "car_id"
-    t.index ["car_id"], name: "index_reviews_on_car_id"
+    t.bigint "booking_id"
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
@@ -82,6 +83,6 @@ ActiveRecord::Schema.define(version: 2018_08_16_043105) do
   add_foreign_key "bookings", "cars"
   add_foreign_key "bookings", "users"
   add_foreign_key "cars", "users"
-  add_foreign_key "reviews", "cars"
+  add_foreign_key "reviews", "bookings"
   add_foreign_key "reviews", "users"
 end
