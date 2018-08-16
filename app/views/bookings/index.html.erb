@@ -1,15 +1,27 @@
-<h1>List of Bookings</h1>
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
-<div class="container">
-  <div class="row">
-    <% @bookings.each do |booking| %>
-      <%= link_to booking_path(booking) do %>
-      <div class="card">
-        <h2><%= booking.start_date %></h2>
-        <h2><%= booking.end_date %></h2>
+<h1>Your Bookings</h1>
+
+
+<div class="bookings-card">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-10" >
+        <% @bookings.each do |booking| %>
+          <%= link_to booking_path(booking) do %>
+          <div class="card"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path booking.car.photo unless booking.car.photo.blank? %>');">
+            <div class="card-description">
+              <h2><%= booking.car.brand %> <%= booking.car.model %></h2>
+            </div>
+            <div class="card-price">
+              <h3>$<%= booking.car.price %> per day</h3>
+            </div>
+              <h2><%= booking.start_date %></h2>
+              <h2><%= booking.end_date %></h2>
+          </div>
+          <% end %>
+        <% end %>
       </div>
-      <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
-
