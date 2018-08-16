@@ -3,7 +3,7 @@
  <div class= "form-input"> <%= f.input :brand, label: "Brand" %></div>
  <div class= "form-input"> <%= f.input :model, label: "Model" %></div>
  <div class= "form-input"> <%= f.input :mileage, label: "Mileage" %></div>
- <div class= "form-input"> <%= f.input :year, label: "Year" %></div>
+ <div class= "form-input"> <%= f.input :year, label: "Year", collection: 1950..2018 %></div>
  <div class= "form-input"> <%= f.input :body_type, label: "Body Type", collection: %w(Convertible Coupe Sedan SUV Wagon) %></div>
  <div class= "form-input"> <%= f.input :location, label: "Location" %></div>
  <div class= "form-input"> <%= f.input :transmission, label: "Transmission",collection: %w(Automatic Manual) %></div>
