@@ -11,8 +11,8 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
-  <body style="padding-top : 60px ;" >
-    <%= render 'layouts/navbar' %>
+  <body>
+    <%= render 'layouts/navbar-landing' %>
     <%= render 'flashes' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>

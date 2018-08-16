@@ -1,0 +1,44 @@
+.booking-card h3{
+  margin-top: auto;
+}
+
+.show_image {
+  background-image: cover;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-left: 0px;
+  color: #636E75;
+}
+
+.btn-show input {
+    color: #fff;
+    background-color: #53c653;
+    border-color: #308edc;
+    margin: 10px;
+    margin-left: 85px;
+    margin-top: 10px;
+    display: inline-block;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 18px;
+    line-height: 1.428571429;
+    border-radius: 2px;
+}
+.btns-end {
+  margin-left: 0;
+  padding-left:0;
+}
+
+.wrapper-booking-form {
+  margin-top: 10px;
+}
+
+.wrapper-button {
+  display: inline-block;
+}

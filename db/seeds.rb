@@ -52,7 +52,7 @@ user3 = User.create(
   phone: "+12346",
   address: "Tokyo, Roppongi",
   drivers_license: "some other license",
-  email: "chuck@gmail.com",
+  email: "jackiechan@gmail.com",
   password: "123456",
   remote_photo_url: url3
   )
@@ -113,7 +113,7 @@ jan = User.create(
 
 p "created #{User.count} users"
 
-brand = %w( Lamborgini Ferrari AstonMartin Bentley McLaren Porsche )
+brand = %w( Lamborgini Ferrari Bentley McLaren Porsche )
 body_type = %w( Coupe Sedan SUV Wagon )
 transmission = %w( manual automatic )
 
@@ -124,23 +124,71 @@ bentelyurl = "https://res.cloudinary.com/jphoga/image/upload/v1534234316/bentely
 ferrariurl = "https://res.cloudinary.com/jphoga/image/upload/v1534234316/ferrari.jpg"
 lamborginiurl = "https://res.cloudinary.com/jphoga/image/upload/v1534234316/centenario.jpg"
 
-car_arr = [porscheurl, astonurl, mclarenurl, bentelyurl, ferrariurl, lamborginiurl]
 
-10.times do
-  car = Car.new(
-    brand: brand.sample,
-    mileage: [*(1..50000)].sample,
-    year: [1950, 1970, 1980, 1968, 2008, 2020].sample,
-    body_type: body_type.sample,
+  porsche = Car.create(
+    brand: "Porsche",
+    mileage: [*(10..50000)].sample,
+    year: 2008,
+    body_type: "Coupe",
     location: Faker::Nation.capital_city,
     price: [*(1000..5000)].sample,
     transmission: transmission.sample,
     user: User.all.sample,
-    model: "fake model"
+    model: "911",
+    remote_photo_url: porscheurl
     )
-  car.remote_photo_url = car_arr.sample
-  car.save!
-end
+
+  lamborgini = Car.create(
+    brand: "Lamborgini",
+    mileage: [*(100..50000)].sample,
+    year: 2010,
+    body_type: "Coupe",
+    location: Faker::Nation.capital_city,
+    price: [*(1000..5000)].sample,
+    transmission: transmission.sample,
+    user: User.all.sample,
+    model: "Gallardo",
+    remote_photo_url: lamborginiurl
+    )
+
+  ferrari = Car.create(
+    brand: "Ferrari",
+    mileage: [*(1..50000)].sample,
+    year: 2010,
+    body_type: "Coupe",
+    location: Faker::Nation.capital_city,
+    price: [*(1000..5000)].sample,
+    transmission: transmission.sample,
+    user: User.all.sample,
+    model: "458 Italia",
+    remote_photo_url: ferrariurl
+    )
+
+  bentely = Car.create(
+    brand: "Bentley",
+    mileage: [*(1..50000)].sample,
+    year: 2015,
+    body_type: "Coupe",
+    location: Faker::Nation.capital_city,
+    price: [*(1000..5000)].sample,
+    transmission: transmission.sample,
+    user: User.all.sample,
+    model: "Continental GT",
+    remote_photo_url: bentelyurl
+    )
+
+  mclaren = Car.create(
+    brand: "McLaren",
+    mileage: [*(1..50000)].sample,
+    year: 2018,
+    body_type: "Coupe",
+    location: Faker::Nation.capital_city,
+    price: [*(1000..5000)].sample,
+    transmission: transmission.sample,
+    user: User.all.sample,
+    model: "750 S",
+    remote_photo_url: mclarenurl
+    )
 
 p "created #{Car.count} cars"
 
