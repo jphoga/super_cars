@@ -1,6 +1,16 @@
 <h1>Your booking information is shown below</h1>
 <h2><%= @booking.start_date.strftime("%b %d, %Y") %></h2>
 <h2><%= @booking.end_date.strftime("%b %d, %Y") %></h2>
+<% unless @booking.review %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="review-card">
+        <h2>Write A Review</h2>
+          <%= render 'reviews/form', review: @review, unreviewed_booking: @booking %>
+      </div>
+    </div>
+  </div>
+<% end %>
 <%= link_to "See your bookings", bookings_path, class: 'btn btn-primary' %>
 <%= link_to "Back to listings", cars_path, class: 'btn btn-primary' %>
 <%= link_to "Back to home", root_path, class: 'btn btn-primary' %>
