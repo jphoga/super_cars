@@ -24,13 +24,25 @@ class CarsController < ApplicationController
     @car.user = current_user
     if @car.save
       redirect_to car_path(@car)
+      format.json { render :show, status: :created, location: @car }
+
     else
       render :new
+      format.json { render json: @car.errors, status: :unprocessable_entity }
+
     end
   end
 
   def show
     @booking = Booking.new
+
+    @markers = [
+      {
+        lat: @car.latitude,
+        lng: @car.longitude,
+        infoWindow: { content: render_to_string(partial: "/cars/map_box", locals: { car: @car }) }
+      }]
+    
     @unreviewed_bookings = @car.unreviewed_bookings
     # @car.bookings
     # @booking = Booking.find_by(user: current_user)
@@ -39,7 +51,10 @@ class CarsController < ApplicationController
 
   def destroy
     @car.destroy
-    redirect_to cars_path
+    respond_to do |format|
+      format.html { redirect_to flats_url, notice: 'Flat was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private

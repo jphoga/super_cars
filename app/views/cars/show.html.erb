@@ -66,6 +66,16 @@
     </div>
     <% end %>
   </div>
+
+
+ <div class="map-style">
+    <div
+    id="map"
+    style="width: 800px;
+    height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+  >
+    </div>
 </div>
 
 <div class="container">
@@ -103,3 +113,5 @@
     <% end %>
   </div>
 </div>
+
+
