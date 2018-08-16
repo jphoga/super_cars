@@ -1,13 +1,11 @@
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-
 <h1>Your Bookings</h1>
-
-
 <div class="bookings-card">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-10" >
         <% @bookings.each do |booking| %>
+
           <% unless booking.user != current_user %>
             <%= link_to booking_path(booking) do %>
               <div class="card"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path booking.car.photo unless booking.car.photo.blank? %>');">

@@ -6,7 +6,7 @@ class CarsController < ApplicationController
     skip_policy_scope
     if params[:query].present?
       @cars = Car.search_by_car(params[:query])
-    # @cars.order("created_at DESC")
+      # @cars.order("created_at DESC")
     else
       @cars = Car.all
     end
@@ -24,8 +24,10 @@ class CarsController < ApplicationController
     @car.user = current_user
     if @car.save
       redirect_to car_path(@car)
-      format.json { render :show, status: :created, location: @car }
-
+      respond_to do |format|
+        format.json { render :show, status: :created, location: @car }
+        format.html
+      end
     else
       render :new
       format.json { render json: @car.errors, status: :unprocessable_entity }
@@ -41,20 +43,35 @@ class CarsController < ApplicationController
         lat: @car.latitude,
         lng: @car.longitude,
         infoWindow: { content: render_to_string(partial: "/cars/map_box", locals: { car: @car }) }
-      }]
-    
+    }]
+
     @unreviewed_bookings = @car.unreviewed_bookings
     # @car.bookings
     # @booking = Booking.find_by(user: current_user)
     @review = Review.new
+
+    #calculate average rating
+    sum = 0
+    count = 0
+    @car.reviews.each do |review|
+      count += 1
+      sum += review.rating
+    end
+    if sum == 0
+      @average_rating = 0
+    else
+      @average_rating = sum / count
+    end
   end
 
   def destroy
     @car.destroy
+
     respond_to do |format|
-      format.html { redirect_to flats_url, notice: 'Flat was successfully destroyed.' }
+      format.html { redirect_to cars_url, notice: 'Car was successfully destroyed.' }
       format.json { head :no_content }
     end
+
   end
 
   private
