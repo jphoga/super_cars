@@ -1,20 +1,20 @@
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0) 0%, rgba(0,36,61,0.40) 50%), url('https://res.cloudinary.com/jphoga/image/upload/v1534234625/landing.jpg');">
   <div class="banner-content">
     <label class="sr-only" for="inlineFormInputName2"></label>
+    <h1>Rent the car of your dreams</h1>
     <div class="black-font">
       <%= form_tag cars_path, method: :get  do %>
         <%= text_field_tag :query,
             params[:query], placeholder: "Search location", class: "form-tag"%>
         <%= date_field_tag :start,
-            params[:start], placeholder: "Start date", class: "form-tag"%>
+            params[:start],value: Date.today, class: "form-tag"%>
         <%= date_field_tag :end,
-            params[:end], placeholder: "End date", class: "form-tag"%>
+            params[:end], value: Date.today + 7 , class: "form-tag"%>
         <%= submit_tag "Search", class: "btn btn-primary" %>
       <% end %>
+      <p>
+        <span id="banner-typed-text"></span>
+      </p>
     </div>
-    <h1>Rent the car of your dreams</h1>
-    <p>
-      <span id="banner-typed-text"></span>
-    </p>
   </div>
 </div>

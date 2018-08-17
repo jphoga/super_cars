@@ -51,11 +51,6 @@
             %>
             <% end %>
           </div>
-          <div class="item">
-            <div class = "btns-end  col-sm-8">
-              <%= link_to "Go to listings", cars_path, class: 'btn btn-primary'%>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -74,7 +69,7 @@
     <div class="col-sm-12 col-sm-offset-2">
       <div class="map-style">
         <div class= "location-car">
-            <p>Location to your dream car</p>
+          <p>Location to your dream car</p>
         </div>
         <div
         id="map"
@@ -102,4 +97,7 @@
         <%= render 'reviews/show', review: review %>
       <% end %>
     </div>
+  </div>
+  <div class = "btns-center">
+    <%= link_to "Go to listings", cars_path, class: 'btn btn-primary'%>
   </div>

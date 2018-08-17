@@ -1,19 +1,13 @@
 <div class="navbar-wagon-landing navbar-fixed-top">
-
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= cl_image_tag ("") %>
   <% end %>
-
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-
     <% if user_signed_in? %>
-
       <!-- Links when logged in -->
-    <%= link_to "Create Listing", new_car_path %>
-
-
+      <%= link_to "List your car", new_car_path %>
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
@@ -43,7 +37,6 @@
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>
-
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
     <div class="dropdown">
