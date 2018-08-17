@@ -1,0 +1,8 @@
+<div class="review-separator">
+  <h5><%= cl_image_tag review.user.photo, class: "avatar img-circle" %><strong> By <%= review.user.first_name %> <%= review.user.last_name %> from <i><%= review.created_at.strftime("%b %Y") %></i></strong>
+  </h5>
+  <% review.rating.times do %>
+    <i class="fas fa-star yellow-star"></i>
+  <% end %>
+  <p><%= review.content %></p>
+</div>

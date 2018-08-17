@@ -1,0 +1,18 @@
+function refreshForm(innerHTML) {
+  const newReviewForm = document.getElementById('review-card');
+  newReviewForm.innerHTML = innerHTML;
+}
+
+function addReview(reviewHTML) {
+  const reviews = document.getElementById('reviews');
+  reviews.insertAdjacentHTML('beforeend', reviewHTML);
+}
+
+<% if @review.errors.any? %>
+  // refreshForm('<%= j render "reviews/form", unreviewed_booking: @booking, review: @review %>');
+  refreshForm('<%= j render "cars/review_card", review: @review, unreviewed_bookings: @unreviewed_bookings %>');
+<% else %>
+  addReview('<%= j render "reviews/show", review: @review %>');
+  // refreshForm('<%= j render "reviews/form", unreviewed_booking: @booking, review: Review.new %>');
+  refreshForm('<%= j render "cars/review_card", review: Review.new, unreviewed_bookings: @unreviewed_bookings %>');
+<% end %>

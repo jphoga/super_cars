@@ -80,8 +80,7 @@
         id="map"
         style="width: 800px;
         height: 600px;"
-        data-markers="<%= @markers.to_json %>"
-        >
+        data-markers="<%= @markers.to_json %>">
         </div>
       </div>
     </div>
@@ -90,36 +89,17 @@
     <% if @unreviewed_bookings.any? %>
       <div class="row">
         <h1 class="text-center">Write A Review</h1>
-        <div class="review-card">
-          <% @unreviewed_bookings.each do |unreviewed_booking| %>
-            <div class="col-xs-12 offset-sm-6">
-              <div class="review-separator">
-                <p>Booking made on <strong> <%= unreviewed_booking.created_at.strftime("%b %e, %Y - %l:%M %p") %></strong></p>
-                <p>Booked From <strong><%= unreviewed_booking.start_date.strftime("%b %d, %Y") %> to: <%= unreviewed_booking.end_date.strftime("%b %d, %Y") %></strong></p>
-                <% if Date.today >= unreviewed_booking.end_date %>
-                  <%= render 'reviews/form', review: @review, unreviewed_booking: unreviewed_booking %>
-                <% else %>
-                  <h5> <i> - You can write a review after the booking period -</i></h5>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
+        <div class="review-card" id="review-card">
+          <%= render 'cars/review_card', review: @review, unreviewed_bookings: @unreviewed_bookings %>
         </div>
       </div>
     <% end %>
     <hr>
     <h1 class="text-center">Reviews</h1>
     <hr>
-    <div class="row">
+    <div class="row" id="reviews">
       <% @car.reviews.order("created_at DESC").each do |review| %>
-        <div class="review-separator">
-          <h5><%= cl_image_tag review.user.photo, class: "avatar img-circle" %><strong> By <%= review.user.first_name %> <%= review.user.last_name %> from <i><%= review.created_at.strftime("%b %Y") %></i></strong>
-          </h5>
-          <% review.rating.times do %>
-            <i class="fas fa-star yellow-star"></i>
-          <% end %>
-          <p><%= review.content %></p>
-        </div>
+        <%= render 'reviews/show', review: review %>
       <% end %>
     </div>
   </div>
