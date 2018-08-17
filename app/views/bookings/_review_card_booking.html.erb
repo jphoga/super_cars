@@ -1,0 +1,15 @@
+<% unless booking.review && booking.review.persisted? %>
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <div class="review-card">
+        <% if Date.today >= booking.end_date %>
+          <h1>Write a review</h1>
+            <!-- <#%= render 'reviews/form', review: review, unreviewed_booking: unreviewed_booking %> -->
+          <%= render 'reviews/form', review: review, unreviewed_booking: booking, current_controller_name: "bookings" %>
+        <% else %>
+          <h2>You can write a review after the booking period</h2>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -2,12 +2,12 @@
   <div class="col-xs-12 offset-sm-6">
     <div class="review-separator">
       <p>Booking made on <strong> <%= unreviewed_booking.created_at.strftime("%b %e, %Y - %l:%M %p") %></strong></p>
-      <p>Booked From <strong><%= unreviewed_booking.start_date.strftime("%b %d, %Y") %> to: <%= unreviewed_booking.end_date.strftime("%b %d, %Y") %></strong></p>
+      <p>Booked from: <strong><%= unreviewed_booking.start_date.strftime("%b %d, %Y") %></strong> to: <strong><%= unreviewed_booking.end_date.strftime("%b %d, %Y") %></strong></p>
       <% if Date.today >= unreviewed_booking.end_date %>
         <% if review.booking == unreviewed_booking %>
-          <%= render 'reviews/form', review: review, unreviewed_booking: unreviewed_booking %>
+          <%= render 'reviews/form', review: review, unreviewed_booking: unreviewed_booking, current_controller_name: "cars" %>
         <% else %>
-          <%= render 'reviews/form', review: Review.new, unreviewed_booking: unreviewed_booking %>
+          <%= render 'reviews/form', review: Review.new, unreviewed_booking: unreviewed_booking, current_controller_name: "cars" %>
         <% end %>
       <% else %>
         <h5> <i> - You can write a review after the booking period -</i></h5>

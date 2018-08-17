@@ -6,8 +6,9 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(review_params)
-    @review.booking = @booking
+    @review = @booking.build_review(review_params)
+    # @review = Review.new(review_params)
+    # @review.booking = @booking
     @review.user = current_user
     authorize @review
     if @review.save

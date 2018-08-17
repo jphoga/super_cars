@@ -4,21 +4,9 @@
   <h2> <i>Start date: </i><%= @booking.start_date.strftime("%b %d, %Y") %></h2>
   <h2> <i> End date: </i><%= @booking.end_date.strftime("%b %d, %Y") %></h2>
 </div>
-<% unless @booking.review %>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-6 col-xs-offset-3">
-        <div class="review-card">
-          <% if Date.today >= @booking.end_date %>
-            <h1>Write a review</h1>
-            <%= render 'reviews/form', review: @review, unreviewed_booking: @booking %>
-          <% else %>
-            <h2>You can write a review after the booking period</h2>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  <% end %>
+<div id="review-card-booking">
+  <%= render 'bookings/review_card_booking', review: @review, booking: @booking %>
+</div>
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2 buttons-options">
       <%= link_to "See your bookings", bookings_path, class: 'btn btn-primary' %>
