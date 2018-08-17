@@ -7,9 +7,9 @@
         <%= text_field_tag :query,
             params[:query], placeholder: "Search location", class: "form-tag"%>
         <%= date_field_tag :start,
-            params[:start],value: Date.today, class: "form-tag"%>
+            params[:start], class: "form-tag"%>
         <%= date_field_tag :end,
-            params[:end], value: Date.today + 7 , class: "form-tag"%>
+            params[:end], class: "form-tag"%>
         <%= submit_tag "Search", class: "btn btn-primary" %>
       <% end %>
       <p>

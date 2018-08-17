@@ -23,7 +23,7 @@
           </tr>
           <tr>
             <td>Mileage:</td>
-            <td><%= @car.mileage %></td>
+            <td><%= @car.mileage %> miles</td>
           </tr>
           <tr>
             <td>Body Type:</td>
@@ -58,7 +58,7 @@
       <div class="wrapper-booking-form">
         <div class="col-sm-4 col-sm-offset-0">
           <div class="booking-card">
-            <h3>Booking Information</h3>
+            <h3>Book your car</h3>
             <%= render 'bookings/form', booking: @booking %>
           </div>
         </div>
@@ -69,7 +69,8 @@
     <div class="col-sm-12 col-sm-offset-2">
       <div class="map-style">
         <div class= "location-car">
-          <p>Location to your dream car</p>
+          <p> Location to your dream car: </p>
+          <p><i><%= @car.location  %></i></p>
         </div>
         <div
         id="map"

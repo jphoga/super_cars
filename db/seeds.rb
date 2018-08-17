@@ -130,7 +130,7 @@ porsche = Car.create(
   mileage: [*(10..50000)].sample,
   year: 2008,
   body_type: "Coupe",
-  location: "Tokyo",
+  location: "Tokyo, Setagaya",
   price: [*(1000..5000)].sample,
   transmission: transmission.sample,
   user: User.all.sample,
@@ -143,7 +143,7 @@ lamborgini = Car.create(
   mileage: [*(100..50000)].sample,
   year: 2010,
   body_type: "Coupe",
-  location: "Tokyo",
+  location: "Tokyo, Meguro",
   price: [*(1000..5000)].sample,
   transmission: transmission.sample,
   user: User.all.sample,
@@ -193,7 +193,7 @@ mclaren = Car.create(
 p "created #{Car.count} cars"
 
 
-10.times do
+6.times do
   Booking.create(
     car: Car.all.sample,
     user: User.all.sample,
@@ -202,12 +202,21 @@ p "created #{Car.count} cars"
   )
 end
 
+Booking.create(
+  car: lamborgini,
+  user: heroku,
+  start_date: Date.new(2018, 8, 17),
+  end_date: Date.new(2018, 8, 17)
+)
+
+
+
 p "created #{Booking.count} bookings"
 
 30.times do
   Review.create(
     content: Faker::Simpsons.quote,
-    rating: [*(1..5)].sample,
+    rating: [*(3..5)].sample,
     user: User.all.sample,
     booking: Booking.all.sample
   )
