@@ -11,9 +11,19 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     authorize @review
     if @review.save
-      redirect_to car_path(@booking.car)
+      @unreviewed_bookings = @booking.car.unreviewed_bookings
+      respond_to do |format|
+        format.html { redirect_to car_path(@booking.car) }
+        format.js
+      end
+      # redirect_to car_path(@booking.car)
     else
-      render "cars/show"
+      @unreviewed_bookings = @booking.car.unreviewed_bookings
+      respond_to do |format|
+        format.html { render 'cars/show' }
+        format.js
+      end
+      # render "cars/show"
     end
   end
 
