@@ -71,14 +71,17 @@
     <% end %>
   </div>
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-sm-12 col-sm-offset-2">
       <div class="map-style">
+        <div class= "location-car">
+            <p>Location to your dream car</p>
+        </div>
         <div
         id="map"
         style="width: 800px;
         height: 600px;"
         data-markers="<%= @markers.to_json %>"
-      >
+        >
         </div>
       </div>
     </div>
