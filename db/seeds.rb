@@ -143,7 +143,7 @@ lamborginiurl = "https://res.cloudinary.com/jphoga/image/upload/v1534234316/cent
     mileage: [*(100..50000)].sample,
     year: 2010,
     body_type: "Coupe",
-    location: "Berlin",
+    location: "Tokyo",
     price: [*(1000..5000)].sample,
     transmission: transmission.sample,
     user: User.all.sample,
