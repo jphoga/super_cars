@@ -130,7 +130,7 @@ porsche = Car.create(
   mileage: [*(10..50000)].sample,
   year: 2008,
   body_type: "Coupe",
-  location: "Tokyo, Setagaya",
+  location: "Tokyo",
   price: [*(1000..5000)].sample,
   transmission: transmission.sample,
   user: User.all.sample,
@@ -143,7 +143,7 @@ lamborgini = Car.create(
   mileage: [*(100..50000)].sample,
   year: 2010,
   body_type: "Coupe",
-  location: "Tokyo, Meguro",
+  location: "Tokyo",
   price: [*(1000..5000)].sample,
   transmission: transmission.sample,
   user: User.all.sample,
@@ -205,8 +205,8 @@ end
 Booking.create(
   car: lamborgini,
   user: heroku,
-  start_date: Date.new(2018, 8, 17),
-  end_date: Date.new(2018, 8, 17)
+  start_date: Date.new(2018, 8, 17 - (rand * 6)),
+  end_date: Date.new(2018, 8, 15 + (rand * 6))
 )
 
 
