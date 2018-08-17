@@ -5,6 +5,10 @@
       <%= form_tag cars_path, method: :get  do %>
         <%= text_field_tag :query,
             params[:query], placeholder: "Search location", class: "form-tag"%>
+        <%= date_field_tag :start,
+            params[:start], placeholder: "Start date", class: "form-tag"%>
+        <%= date_field_tag :end,
+            params[:end], placeholder: "End date", class: "form-tag"%>
         <%= submit_tag "Search", class: "btn btn-primary" %>
       <% end %>
     </div>
