@@ -1,9 +1,17 @@
+
+.booking {
+  margin-bottom:80px;
+}
+
+.booking h5 {
+  text-align: center;
+}
+
 .booking h1 {
   padding-top: 60px;
   text-align: center;
-  margin-bottom: 70px;
+  margin-bottom: 30px;
 }
-
 .booking h2 {
   font-size: 30px;
   font-family: BasisGrotesque, Avenir, Helvetica Neue, Helvetica, sans-serif;
@@ -16,11 +24,22 @@
   // border-radius: 20px;
   // border-width: 1px;
   text-align: center;
-
 }
-
 .buttons-options {
   padding-left: 110px;
-  margin-top: 40px;
+}
+.bookings-card{
+height: 50vh;
+}
+.card {
+height: 50vh;
+margin: 10px;
+margin-left: 25%;
+margin-top: 10px;
+margin-bottom: 45px;
 
+}
+h2{
+font-size: 20px;
+margin-left: 10px;
 }

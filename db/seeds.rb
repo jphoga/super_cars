@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Booking.destroy_all if Rails.env.development?
 Review.destroy_all if Rails.env.development?
+Booking.destroy_all if Rails.env.development?
 Car.destroy_all if Rails.env.development?
 User.destroy_all if Rails.env.development?
 
@@ -204,12 +204,12 @@ end
 
 p "created #{Booking.count} bookings"
 
-10.times do
+100.times do
   Review.create(
     content: Faker::Simpsons.quote,
     rating: [*(1..5)].sample,
     user: User.all.sample,
-    car: Car.all.sample
+    booking: Booking.all.sample
     )
 end
 

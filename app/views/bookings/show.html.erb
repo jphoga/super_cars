@@ -1,21 +1,31 @@
-
 <div class="booking">
-<h1>Thank you !!
-<br></br>Your booking information is shown below</h1>
-
-<div class="col-sm-6 col-sm-offset-3">
-<h2> Start date: <%= @booking.start_date.strftime("%b %d, %Y") %></h2>
+  <h1>Thank you!</h1>
+  <h1>Your booking dates are shown below</h1>
+  <h2> <i>Start date: </i><%= @booking.start_date.strftime("%b %d, %Y") %></h2>
+  <h2> <i> End date: </i><%= @booking.end_date.strftime("%b %d, %Y") %></h2>
 </div>
-<div class="col-sm-6 col-sm-offset-3">
-<h2> End date: <%= @booking.end_date.strftime("%b %d, %Y") %></h2>
-</div>
-
-<div class="col-sm-8 col-sm-offset-2 buttons-options">
-<%= link_to "See your bookings", bookings_path, class: 'btn btn-primary' %>
-<%= link_to "Back to listings", cars_path, class: 'btn btn-primary' %>
-<%= link_to "Back to home", root_path, class: 'btn btn-primary' %>
-<%= link_to "Cancel Booking", booking_path,
-        method: :delete,
-        data: { confirm: "Are you sure you want to cancel your booking?" }, class: 'btn btn-danger' %>
-</div>
+<% unless @booking.review %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <div class="review-card">
+          <% if Date.today >= @booking.end_date %>
+            <h1>Write a review</h1>
+            <%= render 'reviews/form', review: @review, unreviewed_booking: @booking %>
+          <% else %>
+            <h2>You can write a review after the booking period</h2>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 buttons-options">
+      <%= link_to "See your bookings", bookings_path, class: 'btn btn-primary' %>
+      <%= link_to "Back to listings", cars_path, class: 'btn btn-primary' %>
+      <%= link_to "Cancel Booking", booking_path,
+            method: :delete,
+            data: { confirm: "Are you sure you want to cancel your booking?" }, class: 'btn btn-danger' %>
+    </div>
+  </div>
 </div>

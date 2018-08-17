@@ -21,8 +21,6 @@ gem "typedjs-rails"
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 
-
-
 #pundit authorization
 gem 'pundit'
 
@@ -32,10 +30,7 @@ gem 'devise'
 #faker
 gem 'faker'
 
-
-gem 'cloudinary'
-#carrierwave
-gem 'carrierwave', '~> 1.2'
+gem 'pg_search'
 
 #geocoder
 gem 'geocoder'

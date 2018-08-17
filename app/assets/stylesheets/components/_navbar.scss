@@ -1,6 +1,6 @@
 /* Main navbar */
 a {
-  color: black;
+  color: white;
   font-size: 16px;
 }
 
@@ -9,7 +9,7 @@ a:hover {
   text-decoration: none;
  }
 
-.navbar-wagon {
+.navbar-wagon-landing {
   background: transparent;
   transition: all 0.5s background-color ease;
   height: 70px;
@@ -17,6 +17,19 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+}
+
+.navbar-wagon {
+  background: black;
+  transition: all 0.5s background-color ease;
+  height: 60px;
+  padding: 0px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 8px 6px -6px #999;
+
 }
 
 .navbar-wagon-colored {
@@ -30,6 +43,12 @@ a:hover {
 
 /* User Avatar */
 .navbar-wagon .avatar {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}
+
+.navbar-wagon-landing .avatar {
   height: 35px;
   width: 35px;
   border-radius: 50%;

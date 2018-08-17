@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(Booking).order("created_at DESC")
   end
-  
+
   def create
     @car = Car.find(params[:car_id])
     @booking = Booking.new(booking_params)
@@ -13,17 +13,18 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to booking_path(@booking)
     else
+      @unreviewed_bookings = @car.unreviewed_bookings
       render "cars/show"
     end
   end
 
   def show
+    @review = Review.new
   end
 
   def destroy
     @booking.destroy
     redirect_to bookings_path
-
   end
 
   private

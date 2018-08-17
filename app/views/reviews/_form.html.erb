@@ -1,0 +1,7 @@
+<%= simple_form_for [unreviewed_booking, review] do |f| %>
+  <div class = "textforform">
+    <div class= "form-input rating"> <%= f.input :rating, as: :radio_buttons, collection: [1,2,3,4,5] %></div>
+    <div class= "form-input"> <%= f.input :content %></div>
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

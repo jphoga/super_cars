@@ -1,14 +1,16 @@
-.booking-card h3{
-  margin-top: auto;
-}
-
-
 .show_image {
   background-image: cover;
   padding-top: 40px;
   padding-bottom: 40px;
   margin-left: 0px;
   color: #636E75;
+}
+
+.show_image img {
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  border: solid;
+  border-radius: 5px;
+  color:white;
 }
 
 .btn-show input {
@@ -31,12 +33,31 @@
     line-height: 1.428571429;
     border-radius: 2px;
 }
-.btns-end {
-  margin-left: 60px;
+
+.wrapper-booking-form {
+  margin-top: 10px;
+}
+
+.wrapper-button {
+  display: inline-block;
 }
 
 .map-style{
   margin-top: 50px;
     margin-left: 120px;
     padding: 20px;
+}
+
+.yellow-star {
+    color: silver;
+    font-size:25px;
+  }
+
+.review-card {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.review-separator {
+  margin-bottom: 60px;
 }
