@@ -1,23 +1,30 @@
-<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-<h1>Your Bookings</h1>
-<div class="bookings-card">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-10" >
+<div class="booking">
+  <h1>Your Bookings</h1>
+  <div class="bookings-card">
+    <div class="container">
+      <div class="row">
+        <% count = 1 %>
         <% @bookings.each do |booking| %>
-
+          <h5>Your <%= count %>. booking:</h5>
+          <% count += 1 %>
           <% unless booking.user != current_user %>
             <%= link_to booking_path(booking) do %>
-              <div class="card"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path booking.car.photo unless booking.car.photo.blank? %>');">
-                <div class="card-description">
-                  <h2><%= booking.car.brand %> <%= booking.car.model %></h2>
+              <%= link_to booking_path(booking) do %>
+                <div class="col-xs-12 col-sm-12 offset-4" >
+                  <div class="card-wrapper">
+                    <div class="car-card"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path booking.car.photo unless booking.car.photo.blank? %>');">
+                      <div class="card-description">
+                        <h2><%= booking.car.brand %> <%= booking.car.model %></h2>
+                        <h3>$<%= booking.car.price %> per day</h3>
+                      </div>
+                      <div class="card-price">
+                        <h2>From <%= booking.start_date.strftime("%b %d, %Y") %></h2>
+                        <h2>to <%= booking.end_date.strftime("%b %d, %Y") %></h2>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="card-price">
-                  <h3>$<%= booking.car.price %> per day</h3>
-                </div>
-                  <h2><%= booking.start_date %></h2>
-                  <h2><%= booking.end_date %></h2>
-              </div>
+              <% end %>
             <% end %>
           <% end %>
         <% end %>

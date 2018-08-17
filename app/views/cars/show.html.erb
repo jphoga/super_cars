@@ -96,7 +96,7 @@
                 <% if Date.today >= unreviewed_booking.end_date %>
                   <%= render 'reviews/form', review: @review, unreviewed_booking: unreviewed_booking %>
                 <% else %>
-                  <h5> <i>You can write a review after the booking period</i></h5>
+                  <h5> <i> - You can write a review after the booking period -</i></h5>
                 <% end %>
               </div>
             </div>
