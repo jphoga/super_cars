@@ -19,7 +19,7 @@ gem "typedjs-rails"
 
 #image upload
 gem 'cloudinary'
-gem 'carrierwave', '~> 1.2'
+gem 'carrierwave', '~> 1.3'
 
 #pundit authorization
 gem 'pundit'
